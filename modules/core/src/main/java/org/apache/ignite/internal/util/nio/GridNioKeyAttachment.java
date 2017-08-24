@@ -17,16 +17,17 @@
 
 package org.apache.ignite.internal.util.nio;
 
-import org.jetbrains.annotations.Nullable;
-
 /**
  *
  */
 interface GridNioKeyAttachment {
+    /**
+     * @return {@code True} if session was created.
+     */
     boolean hasSession();
 
     /**
      * @return Session if it was created.
      */
-    @Nullable GridSelectorNioSessionImpl session();
+    GridSelectorNioSessionImpl session();
 }
