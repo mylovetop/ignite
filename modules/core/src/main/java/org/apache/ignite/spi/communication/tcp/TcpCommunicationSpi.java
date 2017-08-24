@@ -3162,10 +3162,10 @@ public class TcpCommunicationSpi extends IgniteSpiAdapter implements Communicati
                         if (recoveryDesc != null) {
                             recoveryDesc.onHandshake(rcvCnt);
 
-                            meta.put(-1, recoveryDesc);
+                            meta.put(GridNioServer.RECOVERY_DESC_META_KEY, recoveryDesc);
                         }
 
-                        GridNioSession ses = nioSrvr.createSession(ch, meta).get();
+                        GridNioSession ses = nioSrvr.createSession(ch, meta, false, null).get();
 
                         client = new GridTcpNioCommunicationClient(connIdx, ses, log);
 
